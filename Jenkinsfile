@@ -21,7 +21,7 @@ pipeline{
         }
         stage('Run Application'){
             steps{
-                bat 'java -jar target/hellomaven1-0.0.1-SNAPSHOT.jar'
+                bat 'java -jar target/mymaven-0.0.1-SNAPSHOT.jar'
             }
         }
     }
