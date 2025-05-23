@@ -1,32 +1,27 @@
-pipeline {
+pipeline{
     agent any
-
-    tools {
-        maven 'maven' // Ensure this matches the Maven tool name in Jenkins
+    tools{
+        maven 'Maven'
     }
-
-    stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'master', url: 'https://github.com/Harini-hyd/mymaven.git'
+    stages{
+        stage('Checkout'){
+            steps{
+                git branch:'master',url:'https://github.com/Harini-hyd/mymaven.git'
             }
         }
-
-        stage('Build') {
-            steps {
-                sh 'mvn clean package'
+        stage('Build'){
+            steps{
+                bat 'mvn clean package'
             }
         }
-
-        stage('Test') {
-            steps {
-                sh 'mvn test'
+        stage('Test'){
+            steps{
+                bat 'mvn test'
             }
         }
-
-        stage('Run Application') {
-            steps {
-                sh 'java -jar target/mymaven-0.0.1-SNAPSHOT.jar'
+        stage('Run Application'){
+            steps{
+                bat 'java -jar target/hellomaven1-0.0.1-SNAPSHOT.jar'
             }
         }
     }
